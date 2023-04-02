@@ -6,7 +6,7 @@ plugins {
 android {
     signingConfigs {
         release {
-            storeFile file('C:\\Users\\tosixJuly\\key\\key.keystore')
+            storeFile file('./key.keystore')
             storePassword 'hubaba321'
             keyAlias 'lightereb'
             keyPassword 'woshishabi321'
@@ -40,6 +40,7 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
+    namespace 'com.t0s1x7.unlockthanox'
 }
 
 dependencies {
