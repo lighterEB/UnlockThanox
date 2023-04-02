@@ -1,0 +1,49 @@
+plugins {
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
+}
+
+android {
+    signingConfigs {
+        release {
+            storeFile file('C:\\Users\\tosixJuly\\key\\key.keystore')
+            storePassword 'hubaba321'
+            keyAlias 'lightereb'
+            keyPassword 'woshishabi321'
+        }
+    }
+    compileSdk 33
+
+    defaultConfig {
+        applicationId "com.t0s1x7.unlockthanox"
+        minSdk 29
+        targetSdk 33
+        versionCode 10086
+        versionName '2.0'
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        signingConfig signingConfigs.release
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled true
+            shrinkResources true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+}
+
+dependencies {
+
+    implementation 'androidx.core:core-ktx:1.9.0'
+    compileOnly 'de.robv.android.xposed:api:82'
+}
