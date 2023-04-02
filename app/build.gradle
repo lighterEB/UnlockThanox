@@ -25,12 +25,22 @@ android {
         signingConfig signingConfigs.release
     }
 
+
     buildTypes {
         release {
             minifyEnabled true
             shrinkResources true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
             signingConfig signingConfigs.release
+        }
+    }
+    build.doLast {
+        def today = new Date().format('yyyyMMdd_hh');
+        copy{
+            from('build/outputs/apk')
+            into('/var/lib/jenkins/workspace/unlockthanox/release')
+            include('app-release.apk')
+            rename('app-release.apk','unlockthanox' + "_"+ today + '.apk')
         }
     }
     compileOptions {
@@ -42,6 +52,7 @@ android {
     }
     namespace 'com.t0s1x7.unlockthanox'
 }
+
 
 dependencies {
 
