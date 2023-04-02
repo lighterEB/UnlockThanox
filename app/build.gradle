@@ -18,8 +18,8 @@ android {
         applicationId "com.t0s1x7.unlockthanox"
         minSdk 29
         targetSdk 33
-        versionCode 10086
-        versionName '2.0'
+        versionCode Integer.parseInt(project.APP_VERSION_CODE)
+        versionName project.APP_VERSION
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         signingConfig signingConfigs.release
